@@ -1,0 +1,7 @@
+C:\Users\Sheng\Documents\Sheng\GitHub\vansx001.GenericsLab\GenericsLab\GenericsLab\bin\Debug\GenericsLab.exe.config
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\bin\Debug\GenericsLab.exe.config
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\bin\Debug\GenericsLab.exe
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\bin\Debug\GenericsLab.pdb
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\obj\Debug\GenericsLab.exe
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\obj\Debug\GenericsLab.pdb
+C:\Users\Sheng\Desktop\GenericsLab\GenericsLab\obj\Debug\GenericsLab.csprojResolveAssemblyReference.cache
