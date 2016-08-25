@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="GenericList.cs" />
     <Compile Include="IterableClass.cs" />
-    <Compile Include="MyIntList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
