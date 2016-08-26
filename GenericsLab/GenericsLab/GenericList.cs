@@ -9,69 +9,127 @@ namespace GenericsLab
 {
     public class GenericList<T> : IEnumerable<T>
     {
-        private T[] genericArray; 
+        public T[] genericArray;
+        string genericString;
+        int count;
 
         public GenericList()
         {
             genericArray = new T[0]; 
         }
-        public void Add(T itemToAdd)
+
+                public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < genericArray.Length; i++)
+            {
+                if (genericArray[i] != null)
+                {
+                    yield return genericArray[i];
+                }
+            }
+        }
+
+        public void Add(T item)
         {
             T[] temporaryArray = new T[genericArray.Length + 1];
             for (int i = 0; i < genericArray.Length; i++)
             {
                 temporaryArray[i] = genericArray[i];
             }
-            temporaryArray[genericArray.Length] = itemToAdd;
+            temporaryArray[genericArray.Length] = item;
             genericArray = temporaryArray;
         }
-
-        public IEnumerator<T> GetEnumerator()
+        public static GenericList<T> operator +(GenericList<T> list1, GenericList<T> list2)
         {
-            for (int i = 0; i < genericArray.Length; i++)
+            GenericList<T> combinedList = new GenericList<T>();
+            foreach (T listItem in list1.genericArray)
             {
-                yield return genericArray[i];
+                combinedList.Add(listItem);
             }
-        }
-
-        public void Remove(T removeItem)
-        {
-            bool notFound = true;
-            T[] temporaryGenericArray = new T[genericArray.Length - 1];
-            for (int i = 0; i < genericArray.Length; i++)
+            foreach (T listItem2 in list2.genericArray)
             {
-                if (notFound)
+                combinedList.Add(listItem2);
+            }
+            return combinedList;
+        }
+        public void Remove(T itemToRemove)
+        {
+            bool item = true;
+            T[] temporaryList = new T[genericArray.Length - 1];
+            for (int i = 0; i <= temporaryList.Length; i++)
+            {
+                if (item)
                 {
-                    if (genericArray[i].Equals(removeItem))
+                    if (genericArray[i].Equals(itemToRemove))
                     {
-                        notFound = false;
+                        item = false;
                     }
                     else
                     {
-                        temporaryGenericArray[i] = genericArray[i];
+                        temporaryList[i] = genericArray[i];
                     }
                 }
                 else
                 {
-                    temporaryGenericArray[i - 1] = genericArray[i];
+                    temporaryList[i - 1] = genericArray[i];
                 }
             }
-            genericArray = temporaryGenericArray;
+            genericArray = temporaryList;
         }
 
-        public static void StringBuilder(T[] genericArray)
+        public static GenericList<T> operator -(GenericList<T> combinedList, GenericList<T> list)
         {
-            StringBuilder builder = new StringBuilder();
-            foreach (T itemToAdd in genericArray) // Loop through all strings
+            foreach(T listItem in list.genericArray)
             {
-                builder.Append(itemToAdd).Append(" , "); // Append string to StringBuilder
+                combinedList.Remove(listItem); 
+            }
+            return combinedList;
+        }
+        public string GenericToString()
+        {
+            for (int i = 0; i < genericArray.Length; i++)
+            {
+                genericString = genericString + " * " + genericArray[i];
+            }
+            return genericString;
+        }
+
+        public int Count()
+        {
+           for (int i = 0; i < genericArray.Length; i++)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        public void Print()
+        {
+            foreach (T list in genericArray)
+            {
+                Console.WriteLine(list);
             }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
+        }
+
+        public void Zipper(GenericList<T> list1, GenericList<T> list2)
+        {
+            if (list1.genericArray.Length > list2.genericArray.Length || list1.genericArray.Length < list2.genericArray.Length || list1.genericArray.Length == list2.genericArray.Length)
+            {
+                for (int i = 0; i < list2.genericArray.Length; i++)
+                {
+                    Console.WriteLine("{0}\n{1}", list1.genericArray[i], list2.genericArray[i]);
+                }
+                for (int i = list2.genericArray.Length; i < list1.genericArray.Length; i++)
+                {
+                    Console.WriteLine("{0}", list1.genericArray[i]);
+                }
+           
+            }
         }
     }
-
 }
