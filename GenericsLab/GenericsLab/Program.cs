@@ -14,16 +14,16 @@ namespace GenericsLab
             GenericList<string> cityList = new GenericList<string>();
 
             Console.WriteLine("//*LIST ONE*. ADDING TO A LIST:");
-            cityList.Add("Milwaukee");
-            cityList.Add("Nashville");
-            cityList.Add("New York");
-            cityList.Add("LA");
-            cityList.Add("Seattle");
+            cityList.Add("1. Milwaukee");
+            cityList.Add("2. Nashville");
+            cityList.Add("3. New York");
+            cityList.Add("4. LA");
+            cityList.Add("5. Seattle");
             cityList.Print();
             Console.ReadLine();
 
             Console.WriteLine("//REMOVING FROM A LIST (BYE NASHVILLE):");
-            cityList.Remove("Nashville");
+            cityList.Remove("2. Nashville");
             cityList.Print();
             Console.ReadLine();
 
@@ -34,10 +34,10 @@ namespace GenericsLab
 
             GenericList<string> cityListTwo = new GenericList<string>();
             Console.WriteLine("//*LIST TWO*.");
-            cityListTwo.Add("New Orleans");
-            cityListTwo.Add("Las Vegas");
-            //cityListTwo.Add("Atlanta");
-            //cityListTwo.Add("Springfield");
+            cityListTwo.Add("6. New Orleans");
+            cityListTwo.Add("7. Las Vegas");
+            cityListTwo.Add("8. Atlanta");
+            cityListTwo.Add("9. Springfield");
             cityListTwo.Print();
             Console.ReadLine();
 
